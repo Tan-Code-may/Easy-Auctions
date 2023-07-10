@@ -2,7 +2,7 @@
 	date_default_timezone_set("Asia/Kolkata");
     $user = "root";
     $pass = "";
-    $db = "online-auction-master";
+    $db = "easy_auctions";
 	
 	$db_connect = mysqli_connect("localhost", $user, $pass, $db) or die("no database found");
     

@@ -42,10 +42,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `username`, `password`, `mobile number`, `name`, `surname`) VALUES
-(1, 'admin', 'admin', 1234567095, 'Chandramani', 'Kumar'),
-(2, 'admin2', 'admin2', 3124567893, 'Vishwam', 'Sriram Mundada'),
-(3, 'admin3', 'admin3', 1238767095, 'Anirudh', 'Gupta'),
-(4, 'admin4', 'admin4', 1089567095, 'Harsh', 'Kedia');
+(1, 'admin', 'admin', 1234567095, 'Tanmay', 'Garg'),
 -- --------------------------------------------------------
 
 --

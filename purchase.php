@@ -57,7 +57,7 @@ body {
 
 	<nav class="navbar navbar-expand-sm navbar-dark bg-nav">
         <div class="container">
-            <a class="navbar-brand" href="index.php">Online Auction</a>
+            <a class="navbar-brand" href="index.php">Easy Auctions</a>
             <div align="center">
                 <a class="btn btn-warning" href="new_product.php">Add A Product For Bid</a>
             </div>
