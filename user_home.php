@@ -18,23 +18,11 @@ $products = false;
 
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html>
 <?php include 'head.php'; ?>
 
 <style>
-/*
-body {
-	background-image: url(Silver-Blur-Background-Wallpaper.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-}*/
-
 .bg-gray {
     background-color: rgba(24, 44, 97, .3);
 }
@@ -65,10 +53,6 @@ body {
 	background-size: cover;
 }
 
-/*.card {
-	width: 30%;
-}*/
-
 .row {
 	display: flex;
 	align-items: stretch;
@@ -92,21 +76,41 @@ body {
 }
 
 .text {
-  color: #6c757d !important;
+  color: white !important;
 }
 
 a.text:hover,
 a.text:focus {
-  color: #57606f !important;
+  color: white !important;
 }
+
+.centered-heading {
+    color: #1A2242 !important;
+	margin-bottom: 30px;
+  }
+
+  .btn-color{
+	background-color: #2B3F87;
+	color: white;
+  }
+  .bg-color{
+	background-color: #2B3F87;
+	color: white;
+  }
+  .btn-bid{
+	background-color: #FCC85D;
+	color: #2B3F87;
+  }
+
+  .btn-bid:hover{
+	color: #1A2242;
+  }
+
 </style>
 
 <body>
 
 	<?php include 'nav.php'; ?>
-
-		
-<br><br><br>
 
     <?php
     $query1 = "select * from tbl_product where status = 'On Sale' ORDER BY pro_id DESC;";
@@ -114,17 +118,18 @@ a.text:focus {
 	$showing_products = $run_q1->num_rows;
     ?>
 
-    <h4 class="m-3 text-info">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
-
-    <form>
-		    <div class="container mt-5 mb-5">
-				<?php
-
-				?>
+<div class="container mt-5 mb-5">
+    <div class="row-heading-card">
+      <div class="col-heading">
+        <h4 class="centered-heading text-info">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
+      </div>
+      <div class="col-card-container">
+	  <form>
+				<?php?>
 				<div class="row">
 				<?php
 				
-				while ($row_q1 = $run_q1->fetch_object()) {
+				while ($row_q1 = $run_q1->fetch_object()){
 					$bid_s_time = $row_q1->bidstarttime;
         			$bid_e_time = $row_q1->bidendtime;
         			$product_id = $row_q1->pro_id;
@@ -152,15 +157,16 @@ a.text:focus {
 									$image_name = $row_q6->img_name;
 									$image_destination = "product_images/".$image_name;
 									?>
-									<h4 class="btn btn-sm btn-light mt-3"><?php echo "Bid ends : $row_q1->bidendtime"; ?></h4>
+									<h4 class="btn btn-sm btn-color mt-3"><?php echo "Bid ends : $row_q1->bidendtime"; ?></h4>
 									<img class="product_img card-img-top" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
-									<div class="card-body bg-gray">
-										<a class="card-title text-dark" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+									<div class="card-body bg-color">
+										<a class="card-title text" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h4><?php echo $row_q1->name; ?></h4></a>
+
 										
-										<h4 class="font-weight-light">&nbsp;&#8377;<?php echo $row_q1->price; ?></h4>
+										<h6 class="font-weight-light">&nbsp;&#8377;<?php echo $row_q1->price; ?></h6>
 										
 										<?php if($bid_s_time < $date) { ?>
-										<a href="buyer_bid.php?pro_id=<?php echo $row_q1->pro_id;?>" class="btn btn-sm btn-light mt-3">Bid</a>
+										<a href="buyer_bid.php?pro_id=<?php echo $row_q1->pro_id;?>" class="btn btn-sm btn-bid mt-3">Bid</a>
 										<?php }
 										else { ?>
 										<h4 class="btn btn-sm btn-light mt-3"><?php echo "Bid has not started"; ?></h4>
@@ -183,12 +189,9 @@ a.text:focus {
 				</div>
 			</div>
 	</form>
-
-	
-	
-
-	
-
+      </div>
+    </div>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

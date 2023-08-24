@@ -112,22 +112,9 @@ if (isset($_REQUEST['insert_product'])) {
 <?php include 'head.php'; ?>
 <style>
 body {
-	background-image: url(2257.jpg);
-	background-color: #a29bfe;
+	background-image: url(images/new_product_bg.jpg);
 	position: relative;
 }
-/*
-.bg-nav {
-    background-color: rgba(24, 44, 97, .6);
-    background-color:  rgba(179, 55, 113, .6);
-    background-color: rgba(87, 75, 144, .6);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 5;
-}*/
-
 .bg-nav {
     background-color: rgb(24, 44, 97) !important;
     position: fixed;
@@ -148,19 +135,28 @@ body {
 
 .item {
 	padding: 25px;
-	background-color: rgb(108, 92, 231);
-	border-radius: 5px;
+	background-color: #2B3F87;
+	border-radius: 10px;
 	color: #fff;
 }
 
 table {
 	
 }
+
+.btn-ok{
+	background-color: #FCC85D;
+	color: #2B3F87;
+}
+
+.btn-ok:hover{
+	background-color: #FCC85D;
+	color: #1A2242;
+}
+
 </style>
 <body>
- 
 	<?php include 'nav.php'; ?>
-
 <br>
 <br>
 	<form method="post" enctype="multipart/form-data">
@@ -195,8 +191,9 @@ table {
 					<th>End time of bid</th>
 						<td><input type="datetime-local" id="endtime" name="endtime" required="required"></td>
 					</tr>
+					<tr><td><br></td></tr>
 					<tr align="center">
-						<td colspan="2"><input class="btn btn-secondary" type="submit" name="insert_product" value="OK"></td>
+						<td colspan="2"><input class="btn btn-secondary btn-ok" type="submit" name="insert_product" value="OK"></td>
 					</tr>
 				</table>
 			</div>

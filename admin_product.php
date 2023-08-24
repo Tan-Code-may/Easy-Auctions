@@ -30,25 +30,22 @@ if (isset($_REQUEST['sid'])) {
 <html>
 <head>
 	<title>Admin Product</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <style>
 	body {
-    background-image: url(2255.jpg);
+    /* background-image: url(2255.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
 }
 div
 {
-  color: yellow;
-  background-color: 009900;
   margin: 20px;
   font-size: 25px;
 }
 a
 {
-  color: lightgreen;
-  background-color: 009900;
   margin: 20px;
   font-size: 25px;
 }
@@ -64,11 +61,18 @@ tr:nth-child(1) {
 	background-color: #007bff;
 	color: white;
 }
+
 .right {
-    margin: 20px;
     position: absolute;
     top: 0;
     right: 0;
+	margin: 0;
+	margin-right: 20px;
+}
+
+.admin_home {
+    text-align: center; 
+    margin-top: 20px;
 }
 </style>
 <body>
@@ -76,17 +80,13 @@ tr:nth-child(1) {
 	<?php
     if (isset($_SESSION['admin_login'])) {
         ?>
-        <div>
-		
-            <h2>Welcome Admin</h2>
-            
-        </div>
         <div class="right">
-          <a class="btn btn-danger" href="logout.php">LOGOUT</a>
+			<a class="btn btn-outline-danger" href="logout.php">LOGOUT</a>
         </div>
         <?php
     }
     ?>
+	<br>
 	<form method="post">
 		<table class="mt-5 mb-3" align="center" cellspacing="0" cellpadding="7" width="65%">
 			<tr align="center">
@@ -147,10 +147,6 @@ tr:nth-child(1) {
 				<?php } else {?>
 				<td><?php echo "Not yet Bidded"; ?></td>
 				<?php } ?>
-			
-				
-						
-                <td></td> 
  			</tr>
             <?php 
             }
@@ -160,8 +156,8 @@ tr:nth-child(1) {
     <?php
     if (isset($_SESSION['admin_login'])) {
         ?>
-        <div>
-            <a class="btn btn-primary" href="admin_home.php">Go to Admin Home Page</a>
+        <div class="admin_home">
+            <a class="btn btn-outline-primary" href="admin_home.php">Go to Admin Home Page</a>
         </div>
         <?php
     }

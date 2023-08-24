@@ -2,11 +2,12 @@
 session_start();
 include 'db.php';
 include('pro_table_check.php');
+//if user already logged in using token
 if (isset($_SESSION['user'])) {
     header("location:user_home.php");
 }
 
-
+//post req of login form authentication and token generation
 if (isset($_REQUEST['login'])) {
     $email = $_REQUEST['email'];
     $password = $_REQUEST['password'];
@@ -31,7 +32,7 @@ if (isset($_REQUEST['login'])) {
 }
 
     
-
+//post req of registration form
 if (isset($_REQUEST['submit'])) {
     $name = $_REQUEST['name'];
     $surname = $_REQUEST['sname'];
@@ -56,6 +57,7 @@ if (isset($_REQUEST['submit'])) {
 	}
 }
 
+//redirect to admin login
 if (isset($_REQUEST['admin_login'])) {
     header("location:admin_login.php");
 }
@@ -112,18 +114,48 @@ body {
 }
 
 .item-1 {
-    background-color: lightgreen;/*rgb(179, 55, 113);rgb(231, 76, 60);/*/
+    background-color: #2B3F87;
+    border: 2px solid #2B3F87;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .item-2 {
-    background-color: skyblue;
+    background-color: #E6E6E6;
+    border: 2px solid #2B3F87;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: gray;
 }
+
 
 .admin {
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translate(-50%, -150%);
+}
+.navbar-custom {
+            background-color: #2B3F87;
+        }
+.btn-login{
+	background-color: #FCC85D;
+	color: #2B3F87;
+}
+
+.btn-login:hover{
+	color: #1A2242;
+}
+.login-color{
+    color: #FCC85D;
+}
+
+.signup-color{
+    color: #1A2242;
+}
+
+.btn-signup{
+	background-color: #1A2242;
 }
 
 </style>
@@ -132,20 +164,19 @@ body {
 
 <body>
 	 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-nav">
+    <nav class="navbar navbar-expand-sm navbar-dark navbar-custom">
         <div class="container">
-          <a style="color: #ffc107;" class="navbar-brand" href="index.php">
-                <img style="max-width:50px; margin-top: -7px;" src="logo/auction.svg">&nbsp;&nbsp;Easy Auctions
+          <a style="color: #FCC85D;" class="navbar-brand" href="index.php">
+                <img style="max-width:50px; margin-top: -7px;" src="logo/auction.svg">&nbsp;Easy Auctions
           </a>
              
         </div>
     </nav>
     
-
     <div class="container_login">
 
         <div class="item item-2 p-4">
-            <h2 class="mb-5" align="center">Sign Up</h2>
+            <h2 class="mb-5 signup-color" align="center">Sign Up</h2>
             <form method="post">
                 <table  align="center" cellspacing="0" cellpadding="5" width="500" >
                     <tr>
@@ -167,17 +198,17 @@ body {
                     <tr>
                         <th>Gender</th>
                         <td>
-                            <label><input type="radio" name="gn" value="Male">Male</label>
-                            <label><input type="radio" name="gn" value="Female">Female</label>
+                            <label><input type="radio" name="gn" value="Male"> Male</label>
+                            <label><input type="radio" name="gn" value="Female"> Female</label>
                         </td>
                     </tr>
                     <tr>
                         <th>Hobby</th>
                         <td>
-                            <label><input type="checkbox" name="hb[]" value="Running">Running</label>
-                            <label><input type="checkbox" name="hb[]" value="Reading">Reading</label>
-                            <label><input type="checkbox" name="hb[]" value="Singing">Singing</label>
-                            <label><input type="checkbox" name="hb[]" value="Music">Music</label>
+                            <label><input type="checkbox" name="hb[]" value="Running"> Running</label>
+                            <label><input type="checkbox" name="hb[]" value="Reading"> Reading</label>
+                            <label><input type="checkbox" name="hb[]" value="Singing"> Singing</label>
+                            <label><input type="checkbox" name="hb[]" value="Music"> Music</label>
                         </td>
                     </tr>
                     <tr>
@@ -197,8 +228,9 @@ body {
                             </select>
                         </td>
                     </tr>
+                    <tr><td><br></td></tr>
                     <tr>
-                        <td colspan="2" align="center"><input type="submit" class="btn btn-secondary" name="submit" value="Sign Up"></td> 
+                        <td colspan="2" align="center"><input type="submit" class="btn btn-secondary btn-signup" name="submit" value="Sign Up"></td> 
                     </tr>
                 </table>
             </form>
@@ -209,7 +241,7 @@ body {
 
 
         <div class="item item-1 p-4">
-            <h2 class="mb-5" align="center">Login</h2>
+            <h2 class="mb-5 login-color" align="center">Login</h2>
             <form method="post">
                 <table border="0" align="center" cellpadding="5" cellspacing="0">
                     <?php
@@ -250,10 +282,10 @@ body {
                         }
                         ?>"></td>
                     </tr>
-					  
+                    <tr><td><br></td></tr>
                     <tr align="center">
                         <td colspan="1">
-                            <label><input type="checkbox" onclick="funcnmy()">Show Password</label>
+                            <label><input type="checkbox" onclick="funcnmy()"> Show Password</label>
 							<script>
 								function funcnmy() {
 							  var x = document.getElementById("myInput");
@@ -266,12 +298,12 @@ body {
 							</script>
                         </td>
 						<td colspan="2">
-                            <label><input type="checkbox" name="rem">Remember Me</label>
+                            <label><input type="checkbox" name="rem"> Remember Me</label>
                         </td>
                     </tr>
-                    
+                    <tr><td><br></td></tr>
                     <tr align="center">
-                        <td colspan="2" align="center"><input class="btn btn-light" type="submit" name="login" value="Login"></td>
+                        <td colspan="2" align="center"><input class="btn btn-login" type="submit" name="login" value="Login"></td>
                     </tr>
                 </table>
             </form>
@@ -282,11 +314,12 @@ body {
         <form>    
             <table align="center">
                 <tr align="center">
-                    <td align="center"><input class="btn btn-danger" type="submit" name="admin_login" value="Admin Login"></td>
+                    <td align="center"><input class="btn btn-outline-danger" type="submit" name="admin_login" value="Admin Login"></td>
                 </tr>
             </table>
         </form>
     </div>
+    
 
 
 

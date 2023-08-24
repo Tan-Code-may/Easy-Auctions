@@ -20,10 +20,6 @@ if (isset($_REQUEST['pro_id'])) {
 	$run_q1 = $con->query($query1);
 	$row_q1 = $run_q1->fetch_object();	
 }
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -39,13 +35,9 @@ if (isset($_REQUEST['pro_id'])) {
 
 <style>
 
-
-
-/********/
+/****/
 /* IMAGE POPUT STARTING */
-/********/
-
-
+/****/
 
 .myImg {
     border-radius: 5px;
@@ -53,21 +45,23 @@ if (isset($_REQUEST['pro_id'])) {
     transition: 0.3s;
 }
 
-.myImg:hover {opacity: 0.7;}
+.myImg:hover {
+	opacity: 0.7;
+}
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 10; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none;
+    position: fixed;
+    z-index: 10;
+    padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
 }
 
 /* Modal Content (image) */
@@ -133,10 +127,9 @@ if (isset($_REQUEST['pro_id'])) {
     }
 }
 
-/********/
+/****/
 /* IMAGE POPUT ENDING */
-/********/
-
+/****/
 
 
 .bg-nav {
@@ -170,50 +163,15 @@ if (isset($_REQUEST['pro_id'])) {
 }
 </style>
 <body>
- 
-
-	<nav class="navbar navbar-expand-sm navbar-dark bg-nav">
-		<div class="container">
-			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
-				<img style="max-width:50px; margin-top: -7px;" src="logo/auction.svg">&nbsp;Online Auction
-			</a>
-			<div align="center">
-				<a class="btn btn-warning" href="new_product.php">Add A Product For Bid</a>
-			</div>
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="index.php">Home</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle text-warning" data-toggle="dropdown"><?php echo $row_c->name." ".$row_c->surname;?></a>
-					<div class="dropdown-menu bg-darkblue">
-						<a href="view.php" class="text-warning dropdown-item">View Profile</a>
-						<a href="bid.php" class="text-warning dropdown-item">Bids I made on Products</a>
-						<a href="product.php" class="text-warning dropdown-item">Products I put for Sale</a>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-danger" href="logout.php">Logout</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-
-	
-<br>
-<br>
-
+	<?php include 'nav.php'; ?>
+<br><br>
 	<div class="container">
-
-
-		
 
 		<div class="card mt-5 mb-5">
 			<div class="card-body">
 				<h2 class="card-title"><?php echo $row_q1->name; ?></h2>
 				<p class="card-text"><?php echo $row_q1->description; ?></p>
-				<div class="container">
+				<div class="container" style="padding: 0;">
 					<?php
 					$bid_s_time = $row_q1->bidstarttime;
         			$bid_e_time = $row_q1->bidendtime;
@@ -314,23 +272,12 @@ if (isset($_REQUEST['pro_id'])) {
 						<h5 class="card-title"><?php echo $row_q3->name." ".$row_q3->surname; ?></h5>
 						<h5 class="card-title"><?php echo " $row_q3->email"; ?></h5>
 						<h5 class="font-weight-light">Bid Amount:&nbsp;&nbsp;<?php echo $row_q2->bid_amount; ?></h5>
-
 						<?php
 						?>
-
 					</div>
 				</div>
 			<?php } ?>
 		</div>
-
-
 	</div>
-
-
-
-
-	
-	
-	
 </body>
 </html>

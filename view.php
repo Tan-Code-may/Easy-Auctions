@@ -53,31 +53,13 @@ if (isset($_REQUEST['sid'])) {
 <?php include 'head.php'; ?>
 
 <style type="text/css">
-    /*
-    .align {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding-right: 10px;
-    }*/
 body {
-	
     /* background-image: url(2254.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
  
 }
-/*
-.bg-nav {
-    background-color: rgba(24, 44, 97, .6);
-    background-color:  rgba(179, 55, 113, .6);
-    background-color: rgba(87, 75, 144, .6);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 5;
-}*/
+
 .bg-nav {
     background-color: rgb(24, 44, 97) !important;
     position: fixed;
@@ -110,6 +92,12 @@ tr:nth-child(1) {
     background-color: #007bff;
     color: white;
 }
+
+.admin_home {
+    text-align: center; 
+    margin-top: 20px;
+}
+
 </style>
 
 <body>
@@ -125,16 +113,11 @@ tr:nth-child(1) {
     if (isset($_SESSION['admin_login'])) {
         ?>
         <div class="right">
-            <a class="btn btn-danger" href="logout.php">LOGOUT</a>
+            <a class="btn btn-outline-danger" href="logout.php">LOGOUT</a>
         </div>
         <?php
     }
     ?>
-
-
-    
-
-
  	<form>
  		<table class="mt-5" align="center" cellspacing="0" cellpadding="10" width="80%">
  			<tr align="center">
@@ -244,8 +227,9 @@ tr:nth-child(1) {
     <?php
     if (isset($_SESSION['admin_login'])) {
         ?>
-        <div>
-            <a class="btn btn-primary" href="admin_home.php">Go to Admin Home Page</a>
+       <div class="admin_home">
+            <br>
+            <a class="btn btn-outline-primary" href="admin_home.php">Go to Admin Home Page</a>
         </div>
         <?php
     }

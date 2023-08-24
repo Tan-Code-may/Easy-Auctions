@@ -2,9 +2,11 @@
 session_start();
 include('db.php');
 include('pro_table_check.php');
+
 if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
+
 $home = false;
 $view = false;
 $bids = false;
@@ -21,7 +23,7 @@ $query3 = "SELECT * from tbl_bid WHERE pro_id = $pro_id ORDER BY bid_amount DESC
 $run_3 = $con->query($query3);
 if ($run_3->num_rows === 1) {
 	$row_3 = $run_3->fetch_object();
-	echo $max_bid = $row_3->bid_amount;
+	// echo $max_bid = $row_3->bid_amount;
 } else {
 	$max_bid = $row_1->price;
 }
