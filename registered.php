@@ -59,9 +59,5 @@ a {
     </td>
   </tr>
 				</table>
-<!-- <form>
-	<h1>You are Successfully Registered!</h1>
-	<p>Go back to <a href="index.php">login</a> page </p>
-</form> -->
 </body>
 </html>

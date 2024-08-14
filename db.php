@@ -1,4 +1,4 @@
 <?php 
-$con = new mysqli('localhost','root','','easy_auctions');
+$con = new mysqli('localhost','root','','easyauctions');
 date_default_timezone_set('asia/kolkata');
  ?>
