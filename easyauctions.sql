@@ -215,7 +215,6 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`uid`, `email`, `password`, `name`, `surname`, `gender`, `hobby`, `country`, `dor`, `status`) VALUES
 (15, 'tanmaygarg4218@gmail.com', 'tango123', 'Tanmay', 'G', 'Male', 'Singing', 1, '2023-08-08 02:09:43', 'Enable'),
-(16, 'nit@gmail.com', 'nitto123', 'Nitya', 'G', 'Female', 'Music', 1, '2023-08-08 06:50:16', 'Enable'),
 (17, 'lava@gmail.com', 'lava123', 'La', 'Va', 'Male', 'Music', 1, '2023-08-08 06:59:15', 'Enable'),
 (18, 'tango@gmail.com', 'tango123', 'tango', 'garg', 'Male', 'Music', 1, '2023-08-08 07:04:43', 'Enable'),
 (19, 'sanyam@gmail.com', 'sanyam123', 'Sanyam', 'Ag', 'Male', 'Reading', 1, '2023-08-16 02:11:24', 'Enable');
